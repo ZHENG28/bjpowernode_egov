@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!--    登录过滤-->
+    <filter>
+        <filter-name>CheckLoginFilter</filter-name>
+        <filter-class>com.zj.egov.filter.CheckLoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CheckLoginFilter</filter-name>
+        <url-pattern>*.html</url-pattern>
+        <url-pattern>*.jsp</url-pattern>
+        <url-pattern>/servlet/*</url-pattern>
+    </filter-mapping>
+    <!--    字符集过滤-->
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>com.zj.egov.filter.CharacterEncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/servlet/*</url-pattern>
+    </filter-mapping>
+
+    <!--user-->
+    <!--    登录系统-->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.zj.egov.user.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/servlet/login</url-pattern>
+    </servlet-mapping>
+    <!--    登出系统-->
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.zj.egov.user.servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/servlet/logout</url-pattern>
+    </servlet-mapping>
+
+    <!--system-->
+    <!--    分页查询用户-->
+    <servlet>
+        <servlet-name>PageQueryUserServlet</servlet-name>
+        <servlet-class>com.zj.egov.system.servlet.PageQueryUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PageQueryUserServlet</servlet-name>
+        <url-pattern>/servlet/pageQueryUser</url-pattern>
+    </servlet-mapping>
+    <!--    检查用户代码是否存在-->
+    <servlet>
+        <servlet-name>CheckUserCodeServlet</servlet-name>
+        <servlet-class>com.zj.egov.system.servlet.CheckUserCodeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckUserCodeServlet</servlet-name>
+        <url-pattern>/servlet/checkCode</url-pattern>
+    </servlet-mapping>
+    <!--    新增用户-->
+    <servlet>
+        <servlet-name>InsertUserServlet</servlet-name>
+        <servlet-class>com.zj.egov.system.servlet.InsertUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertUserServlet</servlet-name>
+        <url-pattern>/servlet/addUser</url-pattern>
+    </servlet-mapping>
+    <!--    删除用户-->
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>com.zj.egov.system.servlet.DeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/servlet/deleteUser</url-pattern>
+    </servlet-mapping>
+    <!--    前往修改页面-->
+    <servlet>
+        <servlet-name>SelectUserServlet</servlet-name>
+        <servlet-class>com.zj.egov.system.servlet.SelectUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SelectUserServlet</servlet-name>
+        <url-pattern>/servlet/goUpdate</url-pattern>
+    </servlet-mapping>
+    <!--    修改用户信息-->
+    <servlet>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <servlet-class>com.zj.egov.system.servlet.UpdateUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <url-pattern>/servlet/updateUser</url-pattern>
+    </servlet-mapping>
+
+    <!--basicinfo-->
+    <!--    分页动态查询投资人信息-->
+    <servlet>
+        <servlet-name>PageQueryInvServlet</servlet-name>
+        <servlet-class>com.zj.egov.basicinfo.servlet.PageQueryInvServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PageQueryInvServlet</servlet-name>
+        <url-pattern>/servlet/pageQueryInv</url-pattern>
+    </servlet-mapping>
+    <!--    新增投资人信息-->
+    <servlet>
+        <servlet-name>SaveInvestServlet</servlet-name>
+        <servlet-class>com.zj.egov.basicinfo.servlet.SaveInvestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SaveInvestServlet</servlet-name>
+        <url-pattern>/servlet/saveInv</url-pattern>
+    </servlet-mapping>
+    <!--    查看投资人信息-->
+    <servlet>
+        <servlet-name>ViewInvServlet</servlet-name>
+        <servlet-class>com.zj.egov.basicinfo.servlet.ViewInvServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewInvServlet</servlet-name>
+        <url-pattern>/servlet/viewInv</url-pattern>
+    </servlet-mapping>
+
+    <!--fe-->
+    <!--    检查组织机构代码是否存在-->
+    <servlet>
+        <servlet-name>CheckOrgcodeServlet</servlet-name>
+        <servlet-class>com.zj.egov.fe.servlet.CheckOrgcodeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckOrgcodeServlet</servlet-name>
+        <url-pattern>/servlet/checkOrgcode</url-pattern>
+    </servlet-mapping>
+    <!--    新增企业-->
+    <servlet>
+        <servlet-name>InsertEnServlet</servlet-name>
+        <servlet-class>com.zj.egov.fe.servlet.InsertEnServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InsertEnServlet</servlet-name>
+        <url-pattern>/servlet/insertEn</url-pattern>
+    </servlet-mapping>
+    <!--    动态分页查询企业信息-->
+    <servlet>
+        <servlet-name>PageQueryEnServlet</servlet-name>
+        <servlet-class>com.zj.egov.fe.servlet.PageQueryEnServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PageQueryEnServlet</servlet-name>
+        <url-pattern>/servlet/pageQueryEn</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChartsXMLServlet</servlet-name>
+        <servlet-class>com.zj.egov.fe.servlet.ChartsXMLServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChartsXMLServlet</servlet-name>
+        <url-pattern>/servlet/chartsXml</url-pattern>
+    </servlet-mapping>
+    <!--    查找企业信息-->
+    <servlet>
+        <servlet-name>SelectEnServlet</servlet-name>
+        <servlet-class>com.zj.egov.fe.servlet.SelectEnServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SelectEnServlet</servlet-name>
+        <url-pattern>/servlet/viewEn</url-pattern>
+    </servlet-mapping>
+
+    <!--    Auth-->
+    <!--    上传保存核准件-->
+    <servlet>
+        <servlet-name>SaveAuthServlet</servlet-name>
+        <servlet-class>com.zj.egov.auth.servlet.SaveAuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SaveAuthServlet</servlet-name>
+        <url-pattern>/servlet/saveAuth</url-pattern>
+    </servlet-mapping>
+    <!--    查找核准件-->
+    <servlet>
+        <servlet-name>ViewAuthServlet</servlet-name>
+        <servlet-class>com.zj.egov.auth.servlet.ViewAuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewAuthServlet</servlet-name>
+        <url-pattern>/servlet/viewAuth</url-pattern>
+    </servlet-mapping>
+    <!--    反馈更新核准件-->
+    <servlet>
+        <servlet-name>UpdateAuthServlet</servlet-name>
+        <servlet-class>com.zj.egov.auth.servlet.UpdateAuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateAuthServlet</servlet-name>
+        <url-pattern>/servlet/feedback</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

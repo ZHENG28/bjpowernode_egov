@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <description>EGOV 1.0 functions library</description>
+    <display-name>EGOV functions</display-name>
+    <tlib-version>1.0</tlib-version>
+    <short-name>egov</short-name>
+    <uri>http://www.egov.com/jsp/jstl/functions</uri>
+
+    <function>
+        <description>
+            通过配置文件的key获取其value值
+        </description>
+        <name>getStringByResource</name>
+        <function-class>com.zj.egov.util.RBUtil</function-class>
+        <function-signature>java.lang.String getStringByResource(java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <description>
+            通过配置文件的key获取其value值(加上前缀)
+        </description>
+        <name>getStringByResourcePre</name>
+        <function-class>com.zj.egov.util.RBUtil</function-class>
+        <function-signature>java.lang.String getStringByResource(java.lang.String,java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <description>
+            拼接分页查询按钮的语句
+        </description>
+        <name>changePage</name>
+        <function-class>com.zj.egov.util.StringUtil</function-class>
+        <function-signature>java.lang.String changePage(int)</function-signature>
+    </function>
+</taglib>
